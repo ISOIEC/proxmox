@@ -19,7 +19,7 @@
 	nano  /usr/share/perl5/PVE/API2/Nodes.pm
   
 ищем словосочетание «my $dinfo» (поиск через ctrl + w)
-Перед добавляем $res->{thermalstate} = `sensors`; (ctrl + o сохранить, ctrl + x закрыть) Должно получиться
+Перед добавляем $res->{thermalstate} = `sensors`; (ctrl + o сохранить, ctrl + x закрыть) Должно получиться:
 
 ![image](https://github.com/user-attachments/assets/659ee4e6-65b0-4535-9ebc-ecea0df9b36e)
 
@@ -27,7 +27,7 @@
   nano /usr/share/pve-manager/js/pvemanagerlib.js
 и ищем «widget.pveNodeStatus»
 
-редактируем значние прод себя, чем больше ядер тем больше значение в height
+редактируем значние прод себя, чем больше ядер тем больше значение в height:
 
     height: 400,
     bodyPadding: '20 15 20 15',
