@@ -9,7 +9,7 @@
   
 Проверка командой:
 
-  sensors
+	sensors
   
   ![image](https://github.com/user-attachments/assets/f4a68fde-55a3-4caa-969b-fe958a4d17d2)
 
