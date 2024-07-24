@@ -50,7 +50,8 @@
   
 			return `<div style="width: 70%; text-align: right;">${data}</div>`
 	},
-Выглядеть должно следудующим образом
+ 
+Выглядеть должно следудующим образом:
 ![image](https://github.com/user-attachments/assets/b15947e2-30c8-42be-8291-5c379239aed6)
 
 Перезапцускаем службу командой:
