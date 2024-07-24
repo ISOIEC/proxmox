@@ -17,6 +17,7 @@
   
 ищем словосочетание «my $dinfo» (поиск через ctrl + w)
 Перед добавляем $res->{thermalstate} = `sensors`; (ctrl + o сохранить, ctrl + x закрыть) Должно получиться
+
 ![image](https://github.com/user-attachments/assets/659ee4e6-65b0-4535-9ebc-ecea0df9b36e)
 
 Отредактируем область вывода в файле /usr/share/pve-manager/js/pvemanagerlib.js
