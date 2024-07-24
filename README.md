@@ -58,3 +58,5 @@
 	systemctl restart pveproxy
 Проверяем в web что получилось:
 ![image](https://github.com/user-attachments/assets/f82df303-eec0-4711-97bb-fde9ca8a9b60)
+
+Это не финальный вариант отображения, после обовлю как наведу красоту
