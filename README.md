@@ -1,7 +1,8 @@
-# proxmox
-Добавление температур в статистику
+# proxmox добавление температур в статистику
 
-За основу взята статья https://voronin.one/all/proxmox-temperatura-processora/
+За основу взята [статья](https://voronin.one/all/proxmox-temperatura-processora/).
+
+Спасибо за помощь с js [shamilfrontend](https://github.com/shamilfrontend).
 
  **В отличии от оригинала ядра добавляются сами не важно сколько их 1 или 20**
 
