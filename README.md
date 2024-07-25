@@ -3,6 +3,8 @@
 
 За основу взята статья https://voronin.one/all/proxmox-temperatura-processora/
 
+ **В отличии от оригинала ядра добавляются сами не важно сколько их 1 или 20**
+
 Для начала установить lm-sensors для получения данных из командной строки, соединяемся по ssh или через консоль, далее:
 
 	apt update
@@ -33,31 +35,31 @@
     bodyPadding: '20 15 20 15',
 Далее ищем Manager Version
 
-После этой секции дописываем следующее, **в отличии от оригинала ядра и подпись добавляются сами не важно сколько их 1 или 20**
+После этой секции дописываем следующее:
 
-	{
+        {
             itemId: 'thermal',
             colspan: 2,
             printBar: false,
             title: gettext('CPU Thermal State'),
             textField: 'thermalstate',
-            renderer: function(value) {
-                const data = value.split('\n').filter(val => val.includes('Core ')).reduce((acc, current, index) => {
-                const temperature = current.match(/([\d\.]+)Â/)[1];
-
-                acc += `Core ${index + 1}: ${temperature} ℃  | `;
-                 return acc;
-                        }, '').slice(0, -2);
-  
-			return `<div style="width: 70%; text-align: right;">${data}</div>`
+	renderer: function(value) {
+	const data = value.split('\n').filter(val => val.includes('Core ')).reduce((acc, current, index) => {
+    	const temperature = current.match(/([\d\.]+)Â/)[1];
+    	acc += `<div style="border: 1px solid #111; padding: 2px;">Core ${index + 1}: ${temperature} ℃</div>`;
+    	return acc;
+  	}, '').slice(0, -2);
+	return `<div style="display: grid; grid-template-columns: repeat(7, 1fr); grid-gap: 8px;">${data}</div>`
 	},
  
 Выглядеть должно следудующим образом:
-![image](https://github.com/user-attachments/assets/b15947e2-30c8-42be-8291-5c379239aed6)
+
+![image](https://github.com/user-attachments/assets/7eb1474b-d9bb-42e1-a3fb-569448ff9f69)
+
 
 Перезапцускаем службу командой:
 	systemctl restart pveproxy
 Проверяем в web что получилось:
-![image](https://github.com/user-attachments/assets/f82df303-eec0-4711-97bb-fde9ca8a9b60)
 
-Это не финальный вариант отображения, после обовлю как наведу красоту
+![image](https://github.com/user-attachments/assets/59a15a4c-c317-47a7-9ef5-f481d16705c4)
+
