@@ -27,7 +27,9 @@
 ![image](https://github.com/user-attachments/assets/659ee4e6-65b0-4535-9ebc-ecea0df9b36e)
 
 Отредактируем область вывода в файле /usr/share/pve-manager/js/pvemanagerlib.js
-  nano /usr/share/pve-manager/js/pvemanagerlib.js
+
+  	nano /usr/share/pve-manager/js/pvemanagerlib.js
+  
 и ищем «widget.pveNodeStatus»
 
 редактируем значние прод себя, чем больше ядер тем больше значение в height:
@@ -44,18 +46,22 @@
             printBar: false,
             title: gettext('CPU Thermal State'),
             textField: 'thermalstate',
-	renderer: function(value) {
-	const data = value.split('\n').filter(val => val.includes('Core ')).reduce((acc, current, index) => {
-    	const temperature = current.match(/([\d\.]+)Â/)[1];
-    	acc += `<div style="border: 1px solid #111; padding: 2px;">Core ${index + 1}: ${temperature} ℃</div>`;
-    	return acc;
-  	}, '').slice(0, -2);
-	return `<div style="display: grid; grid-template-columns: repeat(7, 1fr); grid-gap: 8px;">${data}</div>`
-	},
+        renderer: function(value) {
+                const data = value.split('\n').filter(val => val.includes('Core ')).reduce((acc, current, index) => {
+                const temperature = current.match(/([\d\.]+)Â/)[1];
+                        acc += `<div style="border: 1px solid #111; padding: 2px;">Core ${index + 1}: ${temperature} ℃</div>`;
+                return acc;
+                        }, '').slice(0, -2);
+                return `<div style="display: grid; grid-template-columns: repeat(7, 1fr); grid-gap: 8px;">${data}</div>`
+        },
+        },
+    ],
+
  
 Выглядеть должно следудующим образом:
 
-![image](https://github.com/user-attachments/assets/7eb1474b-d9bb-42e1-a3fb-569448ff9f69)
+![image](https://github.com/user-attachments/assets/bc4d59f1-a3a7-443f-8cab-b108f5f69440)
+
 
 
 Перезапцускаем службу командой:
